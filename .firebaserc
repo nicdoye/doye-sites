@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "doye-io"
+    "default": "doye-io",
+    "staging": "staging-doye-sites",
+    "production": "doye-io"
   }
 }
