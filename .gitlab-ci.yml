@@ -16,12 +16,11 @@ deploy_staging:
     - firebase deploy -m "Pipeline $CI_PIPELINE_ID, build $CI_BUILD_ID" --non-interactive --token $FIREBASE_TOKEN
 
 deploy_production:
-  stage: deploy
-  environment: Production
-  only:
-    - master
+  environment: production
+  image: python:latest
   script:
-    - npm install -g firebase-tools
-    - npm install
-    - firebase use --token $FIREBASE_TOKEN production
-    - firebase deploy -m "Pipeline $CI_PIPELINE_ID, build $CI_BUILD_ID" --non-interactive --token $FIREBASE_TOKEN
+  - pip install awscli
+  - aws s3 cp ./ s3://$S3_BUCKET_NAME/ --recursive --exclude "*" --include "*.html" --include "*.jpg" --include "*.ico" --include "*.png" --include "*.png" --include "*.jpg" --include "*.html" --include "*.png" --include "*.css" --include "*.min" --include "*.css" --include "*.svg" --include "*.woff2" --include "*.ttf" --include "*.woff" --include "*.eot"
+  only:
+  - master
+
