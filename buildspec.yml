@@ -11,6 +11,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Actually, this is a static site, so nothing to do in build phase...
+      - date > public/date.txt
   post_build:
     commands:
       - echo Build completed on `date`
