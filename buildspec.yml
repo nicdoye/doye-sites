@@ -7,18 +7,16 @@ phases:
   pre_build:
     commands:
       - echo Nothing to do in the pre_build phase...
-      - echo 'Environment:'
-      - printenv
   build:
     commands:
       - echo Build started on `date`
       - echo Actually, this is a static site, so nothing to do in build phase...
-      - date > public/date.txt
-      - ls public
+      - date > build_date.txt
+      - printenv > build_env.txt
   post_build:
     commands:
       - echo Build completed on `date`
-      - aws s3 cp ./ s3://$BUCKET_NAME/ --recursive --exclude "*" --include "*.html" --include "*.jpg" --include "*.ico" --include "*.png" --include "*.png" --include "*.jpg" --include "*.html" --include "*.png" --include "*.css" --include "*.min" --include "*.css" --include "*.svg" --include "*.woff2" --include "*.ttf" --include "*.woff" --include "*.eot"
+      - aws s3 cp ./ s3://$BUCKET_NAME/ --recursive --exclude "*" --include "*.html" --include "*.jpg" --include "*.ico" --include "*.png" --include "*.png" --include "*.jpg" --include "*.html" --include "*.png" --include "*.css" --include "*.min" --include "*.css" --include "*.svg" --include "*.woff2" --include "*.ttf" --include "*.woff" --include "*.eot" --include "*.txt"
 #artifacts:
 #  files:
 #    - '**/*'
