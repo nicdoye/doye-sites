@@ -5,6 +5,8 @@ https://doye.name/* https://doye.uk/:splat 301!
 https://www.doye.me.uk/* https://doye.uk/:splat 301!
 https://www.doye.me/* https://doye.uk/:splat 301!
 https://www.doye.name/* https://doye.uk/:splat 301!
+https://doye.eu/* https://doye.uk/:splat 301!
+https://www.doye.eu/* https://doye.uk/:splat 301!
 
 # Optional: Redirect default Netlify subdomain to primary domain
 https://doye.netlify.com/* https://doye.uk/:splat 301!
